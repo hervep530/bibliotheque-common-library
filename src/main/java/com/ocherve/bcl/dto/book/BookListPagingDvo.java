@@ -13,7 +13,7 @@ import com.ocherve.bcl.exception.BookPagingException;
  * @author herve_dev
  *
  */
-public class BookListPaging {
+public abstract class BookListPagingDvo {
 	
 	protected String sortByCategory = "NONE";
 	
@@ -38,7 +38,7 @@ public class BookListPaging {
 	/**
 	 * 
 	 */
-	public BookListPaging() {
+	public BookListPagingDvo() {
 		super();
 	}
 	
@@ -55,7 +55,7 @@ public class BookListPaging {
 	 * @param pageId
 	 * @param pageLimit
 	 */
-	public BookListPaging(String sortByCategory, String sortByWriter, 
+	public BookListPagingDvo(String sortByCategory, String sortByWriter, 
 			String sortById, String sortByTitle, String sortByWrittenDate, String sortByPagesNumber,
 			String sortByQuantityAvailable, 
 			String pageId, String pageLimit) {
@@ -76,15 +76,17 @@ public class BookListPaging {
 	 * @return the sortByCategory
 	 */
 	public String getSortByCategory() {
-		return sortByCategory;
+		if (this.sortByCategory == null) return "";
+		return this.sortByCategory;
 	}
 
 	/**
 	 * @param sortByCategory the sortByCategory to set
 	 */
 	public void setSortByCategory(String sortByCategory) {
+		if ( sortByCategory == null ) return;
 		if ( sortByCategory.isEmpty() ) return;
-		this.sortByCategory = sortByCategory;
+		this.sortByCategory = sortByCategory.toUpperCase();
 		if ( ! this.sortByCategory.toUpperCase().matches("^(|NONE|ASC|DESC)$") )
 			throw new BookPagingException(this.messagePrefix + ".sortByCategory.invalidValue");		
 	}
@@ -93,15 +95,17 @@ public class BookListPaging {
 	 * @return the sortByWriter
 	 */
 	public String getSortByWriter() {
-		return sortByWriter;
+		if (this.sortByWriter == null) return "";
+		return this.sortByWriter;
 	}
 
 	/**
 	 * @param sortByWriter the sortByWriter to set
 	 */
 	public void setSortByWriter(String sortByWriter) {
+		if ( sortByWriter == null ) return;
 		if ( sortByWriter.isEmpty() ) return;
-		this.sortByWriter = sortByWriter;
+		this.sortByWriter = sortByWriter.toUpperCase();
 		if ( ! this.sortByWriter.toUpperCase().matches("^(|NONE|ASC|DESC)$") )
 			throw new BookPagingException(this.messagePrefix + ".sortByWriter.invalidValue");		
 	}
@@ -110,15 +114,17 @@ public class BookListPaging {
 	 * @return the sortById
 	 */
 	public String getSortById() {
-		return sortById;
+		if (this.sortById == null) return "";
+		return this.sortById;
 	}
 
 	/**
 	 * @param sortById the sortById to set
 	 */
 	public void setSortById(String sortById) {
+		if ( sortById == null ) return;
 		if ( sortById.isEmpty() ) return;
-		this.sortById = sortByCategory;
+		this.sortById = sortById.toUpperCase();
 		if ( ! this.sortById.toUpperCase().matches("^(|NONE|ASC|DESC)$") )
 			throw new BookPagingException(this.messagePrefix + ".sortById.invalidValue");		
 	}
@@ -127,15 +133,17 @@ public class BookListPaging {
 	 * @return the sortByTitle
 	 */
 	public String getSortByTitle() {
-		return sortByTitle;
+		if (this.sortByTitle == null) return "";
+		return this.sortByTitle;
 	}
 
 	/**
 	 * @param sortByTitle the sortByTitle to set
 	 */
 	public void setSortByTitle(String sortByTitle) {
+		if ( sortByTitle == null ) return;
 		if ( sortByTitle.isEmpty() ) return;
-		this.sortByTitle = sortByTitle;
+		this.sortByTitle = sortByTitle.toUpperCase();
 		if ( ! this.sortByTitle.toUpperCase().matches("^(|NONE|ASC|DESC)$") )
 			throw new BookPagingException(this.messagePrefix + ".sortByTitle.invalidValue");		
 	}
@@ -144,15 +152,17 @@ public class BookListPaging {
 	 * @return the sortByWrittenDate
 	 */
 	public String getSortByWrittenDate() {
-		return sortByWrittenDate;
+		if (this.sortByWrittenDate == null) return "";
+		return this.sortByWrittenDate;
 	}
 
 	/**
 	 * @param sortByWrittenDate the sortByWrittenDate to set
 	 */
 	public void setSortByWrittenDate(String sortByWrittenDate) {
+		if ( sortByWrittenDate == null ) return;
 		if ( sortByWrittenDate.isEmpty() ) return;
-		this.sortByWrittenDate = sortByWrittenDate;
+		this.sortByWrittenDate = sortByWrittenDate.toUpperCase();
 		if ( ! this.sortByWrittenDate.toUpperCase().matches("^(|NONE|ASC|DESC)$") )
 			throw new BookPagingException(this.messagePrefix + ".sortByWrittenDate.invalidValue");		
 	}
@@ -161,15 +171,17 @@ public class BookListPaging {
 	 * @return the sortByPagesNumber
 	 */
 	public String getSortByPagesNumber() {
-		return sortByPagesNumber;
+		if (this.sortByPagesNumber == null) return "";
+		return this.sortByPagesNumber;
 	}
 
 	/**
 	 * @param sortByPagesNumber the sortByPagesNumber to set
 	 */
 	public void setSortByPagesNumber(String sortByPagesNumber) {
+		if ( sortByPagesNumber == null ) return;
 		if ( sortByPagesNumber.isEmpty() ) return;
-		this.sortByPagesNumber = sortByPagesNumber;
+		this.sortByPagesNumber = sortByPagesNumber.toUpperCase();
 		if ( ! this.sortByPagesNumber.toUpperCase().matches("^(|NONE|ASC|DESC)$") )
 			throw new BookPagingException(this.messagePrefix + ".sortByPagesNumber.invalidValue");		
 	}
@@ -178,15 +190,17 @@ public class BookListPaging {
 	 * @return the sortByQuantityAvailable
 	 */
 	public String getSortByQuantityAvailable() {
-		return sortByQuantityAvailable;
+		if (this.sortByQuantityAvailable == null) return "";
+		return this.sortByQuantityAvailable;
 	}
 
 	/**
 	 * @param sortByQuantityAvailable the sortByQuantityAvailable to set
 	 */
 	public void setSortByQuantityAvailable(String sortByQuantityAvailable) {
+		if ( sortByQuantityAvailable == null ) return;
 		if ( sortByQuantityAvailable.isEmpty() ) return;
-		this.sortByQuantityAvailable = sortByQuantityAvailable;
+		this.sortByQuantityAvailable = sortByQuantityAvailable.toUpperCase();
 		if ( ! this.sortByQuantityAvailable.toUpperCase().matches("^(|NONE|ASC|DESC)$") )
 			throw new BookPagingException(this.messagePrefix + ".sortByQuantityAvailable.invalidValue");		
 	}
@@ -195,13 +209,15 @@ public class BookListPaging {
 	 * @return the pageId
 	 */
 	public String getPageId() {
-		return pageId;
+		if (this.pageId == null) return "";
+		return this.pageId;
 	}
 
 	/**
 	 * @param pageId the pageId to set
 	 */
 	public void setPageId(String pageId) {
+		if ( pageId == null ) return;
 		if ( pageId.isEmpty() ) return;
 		this.pageId = pageId;
 		if ( ! this.pageId.matches("^[0-9]{1,9}$") )
@@ -212,15 +228,17 @@ public class BookListPaging {
 	 * @return the pageLimit
 	 */
 	public String getPageLimit() {
-		return pageLimit;
+		if (this.pageLimit == null) return "";
+		return this.pageLimit;
 	}
 
 	/**
 	 * @param pageLimit the pageLimit to set
 	 */
 	public void setPageLimit(String pageLimit) {
+		if ( pageLimit == null ) return;
 		if ( pageLimit.isEmpty() ) return;
-		this.pageLimit = pageLimit;
+		this.pageLimit = pageLimit.toUpperCase();
 		if ( ! this.pageLimit.matches("^[0-9]{1,3}$") )
 			throw new BookPagingException(this.messagePrefix + ".pageLimit.invalidValue");
 	}
@@ -232,42 +250,42 @@ public class BookListPaging {
 	 */
 	public String toUrlParameters() {
 		String urlParameters = "";
-		if ( ! this.sortById.isEmpty() ) urlParameters += "sortById=" + this.sortById;
-		if ( ! this.sortByTitle.isEmpty() ) {
+		if ( this.getSortById().toUpperCase().matches("ASC|DESC") ) 
+			urlParameters += "sort_by_id=" + this.getSortById();
+		if ( this.getSortByTitle().toUpperCase().matches("ASC|DESC") ) {
 			if ( ! urlParameters.isEmpty() ) urlParameters += "&";
-			urlParameters += "sortByTitle=" + this.sortByTitle;
+			urlParameters += "sort_by_title=" + this.getSortByTitle();
 		}
-		if ( ! this.sortByCategory.isEmpty() ) {
+		if ( this.getSortByCategory().toUpperCase().matches("ASC|DESC") ) {
 			if ( ! urlParameters.isEmpty() ) urlParameters += "&";
-			urlParameters += "sortByCategory=" + this.sortByCategory;
+			urlParameters += "sort_by_category=" + this.getSortByCategory();
 		}
-		if ( ! this.sortByWriter.isEmpty() ) {
+		if ( this.getSortByWriter().toUpperCase().matches("ASC|DESC") ) {
 			if ( ! urlParameters.isEmpty() ) urlParameters += "&";
-			urlParameters += "sortByWriter=" + this.sortByWriter;
+			urlParameters += "sort_by_writer=" + this.getSortByWriter();
 		}
-		if ( ! this.sortByWrittenDate.isEmpty() ) {
+		if ( this.getSortByWrittenDate().toUpperCase().matches("ASC|DESC") ) {
 			if ( ! urlParameters.isEmpty() ) urlParameters += "&";
-			urlParameters += "sortByWrittenDate=" + this.sortByWrittenDate;
+			urlParameters += "sort_by_written_date=" + this.getSortByWrittenDate();
 		}
-		if ( ! this.sortByPagesNumber.isEmpty() ) {
+		if ( this.getSortByPagesNumber().toUpperCase().matches("ASC|DESC") ) {
 			if ( ! urlParameters.isEmpty() ) urlParameters += "&";
-			urlParameters += "sortByPagesNumber=" + this.sortByPagesNumber;
+			urlParameters += "sort_by_pages_number=" + this.getSortByPagesNumber();
 		}
-		if ( ! this.sortByQuantityAvailable.isEmpty() ) {
+		if ( this.getSortByQuantityAvailable().toUpperCase().matches("ASC|DESC") ) {
 			if ( ! urlParameters.isEmpty() ) urlParameters += "&";
-			urlParameters += "sortByQuantityAvailable=" + this.sortByQuantityAvailable;
+			urlParameters += "sort_by_quantity_available=" + this.getSortByQuantityAvailable();
 		}
-		if ( ! this.pageId.contentEquals("0") ) {
+		if ( ! this.getPageId().contentEquals("0") ) {
 			if ( ! urlParameters.isEmpty() ) urlParameters += "&";
-			urlParameters += "page=" + this.pageId;
+			urlParameters += "page=" + this.getPageId();
 		}
-		if ( ! this.pageLimit.contentEquals("0") ) {
+		if ( ! this.getPageLimit().contentEquals("0") ) {
 			if ( ! urlParameters.isEmpty() ) urlParameters += "&";
-			urlParameters += "limit=" + this.pageLimit;
+			urlParameters += "limit=" + this.getPageLimit();
 		}
 
 		return urlParameters;
-
 	}
 	
 	@Override
